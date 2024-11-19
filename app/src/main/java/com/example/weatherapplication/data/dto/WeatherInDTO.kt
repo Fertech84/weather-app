@@ -5,28 +5,28 @@ import com.google.gson.annotations.SerializedName
 data class WeatherInDTO(
 
     @SerializedName("coord")
-    val coordinates : Coord,
+    val coordinates : CoordDTO,
 
     @SerializedName("weather")
-    val weather : List<Weather> ,
+    val weather : List<WeatherDTO> ,
 
     @SerializedName("base")
     val base : String,
 
     @SerializedName("main")
-    val mainInfo : MainWeatherInfo,
+    val mainInfo : MainWeatherInfoDTO,
 
     @SerializedName("visibility")
     val visibility : Float,
 
     @SerializedName("wind")
-    val wind : WeatherWind,
+    val wind : WeatherWindDTO,
 
 )
 
 
 
-data class WeatherWind(
+data class WeatherWindDTO(
     @SerializedName("speed")
     val speed : Float,
 
@@ -38,7 +38,7 @@ data class WeatherWind(
 )
 
 
-data class MainWeatherInfo(
+data class MainWeatherInfoDTO(
     @SerializedName("temp")
     val temperature : Float,
 
@@ -64,7 +64,7 @@ data class MainWeatherInfo(
     val groundLevel : Float,
 )
 
-data class Weather(
+data class WeatherDTO(
 
     @SerializedName("id")
     val id : Int,
@@ -79,7 +79,7 @@ data class Weather(
     val icon : String
 )
 
-data class Coord(
+data class CoordDTO(
     @SerializedName("lon")
     val longitude : Float,
 
