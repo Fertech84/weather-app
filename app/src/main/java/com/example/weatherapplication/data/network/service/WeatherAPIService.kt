@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 //https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={API key}
 
-const val APIKey  = "dcaabf2e50584c5ffd873e737cc61311"
+const val APIKey  = ""
 
 interface WeatherAPIService {
 
