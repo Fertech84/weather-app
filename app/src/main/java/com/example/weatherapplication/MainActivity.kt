@@ -5,13 +5,20 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.weatherapplication.ui.screens.dayScreen.DayScreen
 import com.example.weatherapplication.ui.theme.WeatherApplicationTheme
+
+val provider = GoogleFont.Provider(
+    providerAuthority = "com.google.android.gms.fonts",
+    providerPackage = "com.google.android.gms",
+    certificates = R.array.com_google_android_gms_fonts_certs
+)
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,16 +27,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             WeatherApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(name = "JuanFer",  modifier = Modifier.padding(innerPadding))
+                    DayScreen()
                 }
             }
         }
     }
 }
-
-
-
-
 
 
 
@@ -44,11 +47,10 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 }
 
 
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     WeatherApplicationTheme {
-        Greeting("Android")
+        DayScreen()
     }
 }
