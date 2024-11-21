@@ -12,10 +12,9 @@ import retrofit2.http.Query
 
 interface WeatherAPIService {
 
-    @GET("weather")
-    fun getCurrentWeather(
+    @GET("weather?")
+    suspend fun getCurrentWeather(
         @Query("lat") latitude : Float,
         @Query("lon") longitude : Float,
         @Query("appid")  apiKey: String = APIKey) : WeatherInDTO
-
 }

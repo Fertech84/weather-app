@@ -4,7 +4,6 @@ import com.example.weatherapplication.domain.model.Coord
 import com.example.weatherapplication.domain.model.MainWeatherInfo
 import com.example.weatherapplication.domain.model.Weather
 import com.example.weatherapplication.domain.model.WeatherData
-import com.example.weatherapplication.domain.model.WeatherWind
 
 fun CoordDTO.toCoord() : Coord{
     return Coord(
@@ -35,22 +34,13 @@ fun MainWeatherInfoDTO.toMainWeatherInfo(): MainWeatherInfo{
     )
 }
 
-fun WeatherWindDTO.toWeatherWind() : WeatherWind{
-    return WeatherWind(
-        speed = this.speed,
-        degrees = this.degrees,
-        gust = this.gust
-    )
-}
+
 
 fun WeatherInDTO.toWeatherData() : WeatherData{
     return WeatherData(
         coordinates = this.coordinates.toCoord(),
         weather = this.weather.map { it.toWeather() },
-        base = this.base,
         mainInfo =  this.mainInfo.toMainWeatherInfo(),
-        visibility = this.visibility,
-        wind = this.wind.toWeatherWind()
     )
 }
 

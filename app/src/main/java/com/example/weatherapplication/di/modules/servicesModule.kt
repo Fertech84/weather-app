@@ -2,6 +2,7 @@ package com.example.weatherapplication.di.modules
 
 import com.example.weatherapplication.data.network.service.WeatherAPIService
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
@@ -10,6 +11,7 @@ import retrofit2.Retrofit
 @InstallIn(SingletonComponent::class)
 object ServiceProvider{
 
+    @Provides
     fun provideWeatherService(retrofit : Retrofit) : WeatherAPIService{
         return retrofit.create(WeatherAPIService::class.java)
     }
