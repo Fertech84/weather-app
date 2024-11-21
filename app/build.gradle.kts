@@ -57,6 +57,7 @@ dependencies {
     //default
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.runtime.livedata)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -71,6 +72,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+
+
     //network
     implementation(libs.retrofit) //retrofit
     implementation("com.google.code.gson:gson:2.11.0") //Gson
@@ -78,7 +81,9 @@ dependencies {
 
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
-    
+
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.8")
+
     implementation("io.coil-kt.coil3:coil-compose:3.0.3")
     implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.3")
 

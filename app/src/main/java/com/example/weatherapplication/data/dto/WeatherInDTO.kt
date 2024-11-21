@@ -10,64 +10,47 @@ data class WeatherInDTO(
     @SerializedName("weather")
     val weather : List<WeatherDTO> ,
 
-    @SerializedName("base")
-    val base : String,
-
     @SerializedName("main")
     val mainInfo : MainWeatherInfoDTO,
 
-    @SerializedName("visibility")
-    val visibility : Float,
-
-    @SerializedName("wind")
-    val wind : WeatherWindDTO,
 
 )
 
 
 
-data class WeatherWindDTO(
-    @SerializedName("speed")
-    val speed : Float,
 
-    @SerializedName("deg")
-    val degrees : Float,
-
-    @SerializedName("gust")
-    val gust : Float
-)
 
 
 data class MainWeatherInfoDTO(
     @SerializedName("temp")
-    val temperature : Float,
+    val temperature : Double,
 
     @SerializedName("feels_like")
-    val temperatureSensation : Float,
+    val temperatureSensation : Double,
 
     @SerializedName("temp_min")
-    val minTemperature : Float,
+    val minTemperature : Double,
 
     @SerializedName("temp_max")
-    val maxTemperature : Float,
+    val maxTemperature : Double,
 
     @SerializedName("pressure")
-    val pressure : Float,
+    val pressure : Int,
 
     @SerializedName("humidity")
-    val humidity : Float,  //review just in case it have to be integer
+    val humidity : Int,  //review just in case it have to be integer
 
     @SerializedName("sea_level")
-    val seaLevel : Float,
+    val seaLevel : Int,
 
     @SerializedName("grnd_level")
-    val groundLevel : Float,
+    val groundLevel : Int,
 )
 
 data class WeatherDTO(
 
     @SerializedName("id")
-    val id : Int,
+    val id : Long,
 
     @SerializedName("main")
     val weather: String,
@@ -81,9 +64,9 @@ data class WeatherDTO(
 
 data class CoordDTO(
     @SerializedName("lon")
-    val longitude : Float,
+    val longitude : Double,
 
     @SerializedName("lat")
-    val latitude : Float
+    val latitude : Double
 
 )

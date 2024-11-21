@@ -13,24 +13,35 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.weatherapplication.ui.components.WeatherMainComponent
+import javax.inject.Inject
+
 
 @Composable
-fun DayScreen() {
+fun DayScreen(
+     dayScreenViewModel : DayScreenViewModel
+) {
+
+
+    val currentWeatherState = dayScreenViewModel.currentWeather.observeAsState()
+
     Scaffold(
         topBar = {DayScreenToolBar()}
     ) { innerPadding ->
         LazyColumn(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp),
-            modifier = Modifier.padding(innerPadding)
+            modifier = Modifier
+                .padding(innerPadding)
                 .fillMaxWidth()
         ) {
-            items(5) {
-                WeatherMainComponent()
+            item {
+                WeatherMainComponent(currentWeatherState.value)
             }
         }
     }

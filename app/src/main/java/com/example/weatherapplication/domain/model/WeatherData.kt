@@ -6,48 +6,41 @@ data class WeatherData(
 
     val weather : List<Weather> ,
 
-    val base : String,
+
 
     val mainInfo : MainWeatherInfo,
 
-    val visibility : Float,
 
-    val wind : WeatherWind,
+
+
 
     )
 
 
 
-data class WeatherWind(
-    val speed : Float,
-
-    val degrees : Float,
-
-    val gust : Float
-)
 
 
 data class MainWeatherInfo(
-    val temperature : Float,
+    val temperature : Double,
 
-    val temperatureSensation : Float,
+    val temperatureSensation : Double,
 
-    val minTemperature : Float,
+    val minTemperature : Double,
 
-    val maxTemperature : Float,
+    val maxTemperature : Double,
 
-    val pressure : Float,
+    val pressure : Int,
 
-    val humidity : Float,  //review just in case it have to be integer
+    val humidity : Int,  //review just in case it have to be integer
 
-    val seaLevel : Float,
+    val seaLevel : Int,
 
-    val groundLevel : Float,
+    val groundLevel : Int,
 )
 
 data class Weather(
 
-    val id : Int,
+    val id : Long,
 
     val weather: String,
 
@@ -57,8 +50,8 @@ data class Weather(
 )
 
 data class Coord(
-    val longitude : Float,
+    val longitude : Double,
 
-    val latitude : Float
+    val latitude : Double
 
 )

@@ -5,11 +5,11 @@ import com.example.weatherapplication.data.network.service.WeatherAPIService
 import com.example.weatherapplication.domain.model.WeatherData
 
 interface WeatherUseCases {
-    fun getCurrentWeather(latitude: Float, longitude: Float): WeatherData
+    suspend fun getCurrentWeather(latitude: Float, longitude: Float): WeatherData
 }
 
-class WeatherUseCasesImpl(val weatherAPIService: WeatherAPIService) : WeatherUseCases {
-    override fun getCurrentWeather(latitude: Float, longitude: Float): WeatherData {
+class WeatherUseCasesImpl(private val weatherAPIService: WeatherAPIService) : WeatherUseCases {
+    override suspend fun getCurrentWeather(latitude: Float, longitude: Float): WeatherData {
          return weatherAPIService.getCurrentWeather(
                 latitude = latitude,
                 longitude = longitude
